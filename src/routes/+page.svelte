@@ -10,7 +10,7 @@
 </div>
 
 <div class="botones">
-	<Boton1 href="/notificaciones" titulo="notificaciones" />
+	<Boton1 href="/notificaciones" titulo="Notificaciones" />
 	<Boton2 />
 	<Boton3 />
 </div>
