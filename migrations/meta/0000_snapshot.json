@@ -1,0 +1,124 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "libros": {
+      "name": "libros",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "titulo": {
+          "autoincrement": false,
+          "name": "titulo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "usuario": {
+      "name": "usuario",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "autoincrement": false,
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "prestamos": {
+      "name": "prestamos",
+      "columns": {
+        "id_usuario": {
+          "autoincrement": false,
+          "name": "id_usuario",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_libro": {
+          "autoincrement": false,
+          "name": "id_libro",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fecha_devoluvion": {
+          "autoincrement": false,
+          "name": "fecha_devoluvion",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fecha_retraso": {
+          "autoincrement": false,
+          "name": "fecha_retraso",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {
+        "prestamos_id_libro_libros_id_fk": {
+          "name": "prestamos_id_libro_libros_id_fk",
+          "tableFrom": "prestamos",
+          "tableTo": "libros",
+          "columnsFrom": [
+            "id_libro"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "prestamos_id_usuario_usuario_id_fk": {
+          "name": "prestamos_id_usuario_usuario_id_fk",
+          "tableFrom": "prestamos",
+          "tableTo": "usuario",
+          "columnsFrom": [
+            "id_usuario"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

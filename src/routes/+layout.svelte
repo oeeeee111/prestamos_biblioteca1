@@ -1,16 +1,9 @@
 <script>
-	import '../app.css';
-	let {children} = $props();
+    let { children } = $props();
+    import Encabezado from '$lib/components/encabezado/Encabezado.svelte';
+    import '../app.css';
 </script>
 
-{@render children()}
+<Encabezado />
 
-<!--style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-	}
-	:global(h1) {
-		color: brown;
-	}
-</style-->
+{@render children()}

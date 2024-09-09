@@ -1,4 +1,15 @@
-<a href="Abiblioteca.html" class="btn btn-3"><span>Prestamo</span></a>
+<script lang="ts">
+	interface myProps {
+		href: string;
+		titulo: string;
+	}
+
+	let { href, titulo }: myProps = $props();
+</script>
+
+
+
+<a {href} class="btn btn-3"><span>{titulo}</span></a>
 
 <style>
 	.btn {

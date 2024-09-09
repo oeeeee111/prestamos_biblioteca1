@@ -1,11 +1,19 @@
-<a href="bibliotecaE.html" class="btn"
-	>Devolución <span></span>
+<script lang="ts">
+	interface myProps {
+		href: string;
+		titulo: string;
+	}
+
+	let { href, titulo }: myProps = $props();
+</script>
+
+<a {href} class="btn"
+	>{titulo}<span></span>
 	<span></span>
 </a>
 
 <style>
 	.btn {
-		
 		position: relative;
 		padding: 20px 50px;
 		text-decoration: none;
@@ -20,6 +28,12 @@
 			position: relative;
 			z-index: 2;
 			transition: 0.6s ease all;
+		}
+
+		&:hover {
+			background-color: #042e4b;
+			box-shadow: 0 0 20px var(--color);
+			border-color: var(--color);
 		}
 
 		& > span {
@@ -55,6 +69,6 @@
 			color: var(--color);
 			background-color: var(--color);
 		}
-		
 	}
+
 </style>

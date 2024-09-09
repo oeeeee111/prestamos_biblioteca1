@@ -1,10 +1,12 @@
 <script lang="ts">
+
 	interface myProps {
 		href: string;
 		titulo: string;
 	}
 
 	let { href, titulo }: myProps = $props();
+	
 </script>
 
 <a {href} class="btn"><span>{titulo}</span></a>
