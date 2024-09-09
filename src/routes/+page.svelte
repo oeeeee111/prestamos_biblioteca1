@@ -6,8 +6,8 @@
 
 <div class="botones">
 	<Boton1 href="/notificaciones" titulo="Notificaciones" />
-	<Boton2 href="/notificaciones" titulo="Notificaciones" />
-	<Boton3 href="/notificaciones" titulo="Notificaciones" />
+	<Boton2 href="/notificaciones" titulo="Opcion1" />
+	<Boton3 href="/notificaciones" titulo="Otro sitio" />
 </div>
 
 <style>
