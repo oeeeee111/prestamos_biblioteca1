@@ -42,7 +42,7 @@
               <Botonprestamo1 href="/devoluciones" titulo="Enviar" > </Botonprestamo1>
 <br><br>
 
-<Botonprestamo2 href="/referencia" titulo="Salida" > </Botonprestamo2>
+<Botonprestamo2 href="/" titulo="Salida" > </Botonprestamo2>
 
         </center>
      </div>

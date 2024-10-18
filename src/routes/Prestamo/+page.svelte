@@ -33,7 +33,7 @@ import Botonprestamo2 from "$lib/components/botones/botonprestamo2.svelte";
                 
   <Botonprestamo1 href="/botones" titulo="Enviar" > </Botonprestamo1>
         <br><br>
-        <Botonprestamo2 href="/botones" titulo="Salida"></Botonprestamo2>
+        <Botonprestamo2 href="/" titulo="Salida"></Botonprestamo2>
         </center>
         
 
