@@ -7,22 +7,28 @@
 	let { href, titulo }: myProps = $props();
 </script>
 
-<a {href} class="btn"
+<a {href} class="btn2"
 	>{titulo}<span></span>
 	<span></span>
 </a>
 
 <style>
-	.btn {
-		position: relative;
-		padding: 20px 50px;
-		text-decoration: none;
-		font-weight: bold;
-		color: #000;
-		justify-content: space-around;
-		border: none;
-		overflow: hidden;
-		margin: 0 10px;
+	.btn2 {
+		
+		font-family: 'Lora', serif;
+   display: inline-flex;
+   position: relative;
+   padding: 20px 50px;
+   text-decoration: none;
+   color: #ffffff;
+   justify-content: space-around;
+   letter-spacing: 1px;
+   border: none;
+			
+		border: 3px solid;
+  border: 3px solid;
+   transition: 0.6s ease all;
+  border-color: #ffff;
 
 		& span {
 			position: relative;
@@ -66,9 +72,10 @@
 		&:hover :last-child {
 			left: 80%;
 			transform: rotate(90deg);
-			color: var(--color);
-			background-color: var(--color);
+			background-color:#042e4b;
 		}
+
+
 	}
 
 </style>

@@ -18,7 +18,7 @@
 		position: relative;
 		padding: 20px 50px;
 		text-decoration: none;
-		color: #000;
+		color: #ffff;
 		justify-content: space-around;
 		border: none;
 		margin: 0 10px;

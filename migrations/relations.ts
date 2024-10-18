@@ -4,11 +4,11 @@ import { libros, prestamos, usuario } from "./schema";
 export const prestamosRelations = relations(prestamos, ({one}) => ({
 	libro: one(libros, {
 		fields: [prestamos.idLibro],
-		references: [libros.id]
+		references: [libros.idLibro]
 	}),
 	usuario: one(usuario, {
 		fields: [prestamos.idUsuario],
-		references: [usuario.id]
+		references: [usuario.idUsuario]
 	}),
 }));
 
