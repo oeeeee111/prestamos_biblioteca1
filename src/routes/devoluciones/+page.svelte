@@ -1,55 +1,115 @@
-
 <script>
+	let { form } = $props();
 
-	import Botonprestamo2 from '$lib/components/botones/botonprestamo2.svelte';
-	import Botonprestamo1 from '$lib/components/botones/botonprestamo1.svelte';
-
-
+	let resultados = $state(form?.resultados);
+	let activarBoton = $derived.by(() => {
+		if (resultados) {
+			return resultados.some((resultado) => resultado.mostrar);
+		} else {
+			return false;
+		}
+	});
 </script>
 
+<svelte:head>
+	<title>Pagina de devoluciones</title>
+</svelte:head>
+
+<form action="?/librosPrestados" method="post" class="miContainer">
+	<div>
+		<label for="page">Codigo del usuario</label>
+		<input type="text" name="codUsuario" id="page" required />
+	</div>
+	<button type="submit">Buscar</button>
+</form>
+
+{#if resultados && resultados.length > 0}
+	<form action="?/devolverLibros" method="post">
+		<table>
+			<thead>
+				<tr>
+					<th>Título del Libro</th>
+					<th>Fecha de Préstamo</th>
+					<th>Código del Ejemplar</th>
+					<th>Devolver</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{#each resultados as resultado}
+					<tr>
+						<td>{resultado.titulo_libro}</td>
+						<td>{resultado.fecha_prestamo}</td>
+						<td>{resultado.codigo_ejemplar}</td>
+						<td>
+                            <input type="checkbox" name={String(resultado.id_prestamo)} bind:checked={resultado.mostrar} />
+                        </td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+		<button disabled={!activarBoton} style="display:block; margin: 0.5rem auto">Devolver libros</button>
+	</form>
+{:else}
+    <p style="text-align: center">No se encontraron resultados</p>
+{/if}
 
 
 
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+	.miContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2rem;
+		background-color: #f1f1f1;
+		border-radius: 20px;
+		margin: 5rem auto;
+		width: 50%;
+	}
 
+	input {
+		padding: 0.5rem;
+		margin: 0.5rem;
+		border-radius: 10px;
+	}
 
-    <center>
-       
-        <br>
-    </center>
-    <img src="escudo.jpeg" alt="" class="1">
-    <div class="contenedor">
-      
-        <center>
-             
-                <br><br><br><br>
-              <label for="idl" style="font-size: 20px;">Nombre del libro</label>
-              <input type="text" class="uwu" placeholder="Escriba Nombre del Libro" id="idl" name="idl" size="40">
-              <br><br>
+	button {
+		padding: 0.5rem;
+		margin: 0.5rem;
+		
+        color: white;
+        background-color: #4caf50;
+		border-radius: 10px;
+		cursor: pointer;
+	}
     
-              <label for="F" style="font-size: 20px;">Nombres Completo </label>
-              <input type="text" class="tres" placeholder="Dijiste sus Nombres y Apellidos" id="F" name="F" size="38">
-              <br><br>
-    
-              <label for="F" style="font-size: 20px;">ID del Estudiante</label>
-              <input type="text" class="tres" placeholder="Dijite su Tarjeta de Identidad o Cedula " id="F" name="F" size="40">
-              <br><br>
-    
-              <label for="F" style="font-size: 20px;">ID del libro</label>
-              <input type="text" class="tres" placeholder="Escriba el ID de Libro" id="F" name="F" size="46">
-              <br><br>
-            
-              <Botonprestamo1 href="/devoluciones" titulo="Enviar" > </Botonprestamo1>
-<br><br>
+	button:hover {
+        color: rgb(82, 79, 79);
+        border: solid 1px #4caf50;
+        background-color: white;
+	}
 
-<Botonprestamo2 href="/" titulo="Salida" > </Botonprestamo2>
+	button:disabled {
+		background-color: #e0e0e0;
+		color: #a0a0a0;
+		border: solid 1px #a0a0a0;
+		cursor: not-allowed;
+	}
 
-        </center>
-     </div>
-        
-        <style>
-         
-
-
-
-        </style>
+	table {
+		width: 70%;
+		border-collapse: collapse;
+		margin: 2rem auto;
+	}
+	th,
+	td {
+		border: 1px solid black;
+		padding: 8px;
+		text-align: left;
+	}
+	th {
+		background-color: #f2f2f2;
+	}
+</style>

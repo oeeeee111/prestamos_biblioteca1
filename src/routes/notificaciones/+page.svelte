@@ -1,14 +1,17 @@
 
 <div class="hola">
     <div class="search-container">
-        
+     
+             
         <form action="/buscar" method="get">
+           
             <br><br>
-            <input type="text" name="query" class="search-box" placeholder="Buscar...">
+            <input type="text" id=buscador name="query" class="search-box" placeholder="Buscar...">
 
             <br><br>
-            <button type="submit" class="search-button">Buscar</button>
+            <button  type="submit" class="search-button" >Buscar</button>
         </form>
+        
     </div>
 
 </div>
@@ -29,6 +32,7 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            display: block;
         }
         
 
@@ -46,3 +50,6 @@
             background-color: #0056b3;
         }
     </style>
+
+
+
