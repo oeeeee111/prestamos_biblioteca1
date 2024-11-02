@@ -1,6 +1,5 @@
-import { prestamos, ejemplares, libros, usuarios } from "$lib/server/database/data";
-
-import { db } from '$lib/server/database/client'; 
+import { prestamos, ejemplares, libros, usuarios } from "$lib/server/database/data"// Asegúrate de importar las tablas correctas
+import { db } from '$lib/server/database/client'; // Asegúrate de importar tu instancia de base de datos
 import { eq, and, isNull} from "drizzle-orm";
 
 

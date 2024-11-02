@@ -1,0 +1,223 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "usuarios": {
+      "name": "usuarios",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "nombre": {
+          "autoincrement": false,
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigo": {
+          "autoincrement": false,
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "autoincrement": false,
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "libros": {
+      "name": "libros",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "titulo": {
+          "autoincrement": false,
+          "name": "titulo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigo": {
+          "autoincrement": false,
+          "name": "codigo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "ejemplares": {
+      "name": "ejemplares",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "idLibro": {
+          "autoincrement": false,
+          "name": "idLibro",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigoEjemplar": {
+          "autoincrement": false,
+          "name": "codigoEjemplar",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estado": {
+          "default": "'disponible'",
+          "autoincrement": false,
+          "name": "estado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {
+        "ejemplares_idLibro_libros_id_fk": {
+          "name": "ejemplares_idLibro_libros_id_fk",
+          "tableFrom": "ejemplares",
+          "tableTo": "libros",
+          "columnsFrom": [
+            "idLibro"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "prestamos": {
+      "name": "prestamos",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "idUsuario": {
+          "autoincrement": false,
+          "name": "idUsuario",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "idEjemplar": {
+          "autoincrement": false,
+          "name": "idEjemplar",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fechaPrestamo": {
+          "autoincrement": false,
+          "name": "fechaPrestamo",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fechaDevolucion": {
+          "autoincrement": false,
+          "name": "fechaDevolucion",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fechaLimite": {
+          "autoincrement": false,
+          "name": "fechaLimite",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fechaRetraso": {
+          "autoincrement": false,
+          "name": "fechaRetraso",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {
+        "prestamos_idEjemplar_ejemplares_id_fk": {
+          "name": "prestamos_idEjemplar_ejemplares_id_fk",
+          "tableFrom": "prestamos",
+          "tableTo": "ejemplares",
+          "columnsFrom": [
+            "idEjemplar"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "cascade"
+        },
+        "prestamos_idUsuario_usuarios_id_fk": {
+          "name": "prestamos_idUsuario_usuarios_id_fk",
+          "tableFrom": "prestamos",
+          "tableTo": "usuarios",
+          "columnsFrom": [
+            "idUsuario"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
