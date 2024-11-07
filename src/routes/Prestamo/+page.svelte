@@ -2,6 +2,8 @@
 <script>
 import Botonprestamo1 from "$lib/components/botones/botonprestamo1.svelte";
 import Botonprestamo2 from "$lib/components/botones/botonprestamo2.svelte";
+    import { enhance } from '$app/forms';
+
 
 </script>
 
@@ -26,19 +28,17 @@ import Botonprestamo2 from "$lib/components/botones/botonprestamo2.svelte";
                 <label for="codigo" style="font-size: 20px;">ID del libro</label>
                 <input type="text" class="tres" placeholder="Dijite el ID de Libro " id="codigolib" name="codigo" size="45">
                 <br><br>
-                <label for="fechaPrestamo" style="font-size: 20px;">Fecha Prestamo</label>
-                <input type="text" class="tres" placeholder="Ingrese la Fecha del Prestamo " id="fechaPrestamo" name="fechaPrestamo" size="34">
-                <br><br>
-                <label for="fechaLimite" style="font-size: 20px;">Fecha Limite</label>
-                <input type="text" class="tres" placeholder="Ingrese la Fecha Limite " id="fechaLimite" name="fechaLimite" size="34">
-                <br><br>
+               
+            
             </center>
-           
-
-           <center>     
             <button type="submit" class="btn btn1">
                 Enviar
             </button>
+
+           <center>     
+           
+            <br><br>
+     
         <br><br>
         <Botonprestamo2 href="/" titulo="Salida"></Botonprestamo2>
         </center>
@@ -46,3 +46,49 @@ import Botonprestamo2 from "$lib/components/botones/botonprestamo2.svelte";
     </form>
 
 
+<style>
+
+.btn1{
+    display: flex;
+    font-family: 'Lora', serif;
+    display: inline-flex;
+    position: relative;
+    padding: 20px 50px;
+    text-decoration: none;
+    color: #000000;
+    justify-content: space-around;
+    align-items: center;  
+    top: 200%;
+}
+.btn{
+    display: flex;
+    font-family: 'Lora', serif;
+    display: inline-flex;
+    position: relative;
+    padding: 20px 50px;
+    text-decoration: none;
+    color: #ffff;
+    justify-content: space-around;
+    letter-spacing: 1px;
+    border: none;  
+    position: relative;
+    z-index: 2;
+    transition: 0.6s ease all;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
