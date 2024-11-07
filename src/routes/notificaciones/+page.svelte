@@ -1,115 +1,62 @@
-<script>
-	let { form } = $props();
-
-	let resultados = $state(form?.resultados);
-	let activarBoton = $derived.by(() => {
-		if (resultados) {
-			return resultados.some((resultado) => resultado.mostrar);
-		} else {
-			return false;
-		}
-	});
+<script lang="ts">
+    export let data;
 </script>
 
-<svelte:head>
-	<title>Pagina de devoluciones</title>
-</svelte:head>
-
-<form action="?/librosPrestados" method="post" class="miContainer">
-	<div>
-		<label for="page">Codigo del usuario</label>
-		<input type="text" name="codUsuario" id="page" required />
-	</div>
-	<button type="submit">Buscar</button>
-</form>
-
-{#if resultados && resultados.length > 0}
-	<form action="?/devolverLibros" method="post">
-		<table>
-			<thead>
-				<tr>
-					<th>Título del Libro</th>
-					<th>Fecha de Préstamo</th>
-					<th>Código del Ejemplar</th>
-					<th>Devolver</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				{#each resultados as resultado}
-					<tr>
-						<td>{resultado.titulo_libro}</td>
-						<td>{resultado.fecha_prestamo}</td>
-						<td>{resultado.codigo_ejemplar}</td>
-						<td>
-                            <input type="checkbox" name={String(resultado.id_prestamo)} bind:checked={resultado.mostrar} />
-                        </td>
-					</tr>
-				{/each}
-			</tbody>
-		</table>
-		<button disabled={!activarBoton} style="display:block; margin: 0.5rem auto">Devolver libros</button>
-	</form>
-{:else}
-    <p style="text-align: center">No se encontraron resultados</p>
-{/if}
-
-
+<div class="container">
+    <h2>Estado de Libros</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Título del Libro</th>
+                <th>Código Ejemplar</th>
+                <th>Estado</th>
+                <th>Prestado a</th>
+                <th>Fecha Préstamo</th>
+                <th>Fecha Límite</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each data.libros as libro}
+                <tr>
+                    <td>{libro.titulo_libro}</td>
+                    <td>{libro.codigo_ejemplar}</td>
+                    <td>{libro.estado}</td>
+                    <td>{libro.nombre_usuario || '-'}</td>
+                    <td>{libro.fecha_prestamo || '-'}</td>
+                    <td>{libro.fecha_limite || '-'}</td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+</div>
 
 <style>
-	.miContainer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 2rem;
-		background-color: #f1f1f1;
-		border-radius: 20px;
-		margin: 5rem auto;
-		width: 50%;
-	}
+    .container {
+        padding: 20px;
+    }
 
-	input {
-		padding: 0.5rem;
-		margin: 0.5rem;
-		border-radius: 10px;
-	}
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-	button {
-		padding: 0.5rem;
-		margin: 0.5rem;
-		
-        color: white;
-        background-color: #4caf50;
-		border-radius: 10px;
-		cursor: pointer;
-	}
-    
-	button:hover {
-        color: rgb(82, 79, 79);
-        border: solid 1px #4caf50;
-        background-color: white;
-	}
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-	button:disabled {
-		background-color: #e0e0e0;
-		color: #a0a0a0;
-		border: solid 1px #a0a0a0;
-		cursor: not-allowed;
-	}
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
 
-	table {
-		width: 70%;
-		border-collapse: collapse;
-		margin: 2rem auto;
-	}
-	th,
-	td {
-		border: 1px solid black;
-		padding: 8px;
-		text-align: left;
-	}
-	th {
-		background-color: #f2f2f2;
-	}
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    tr:nth-child(even) {
+        background-color: #fafafa;
+    }
 </style>

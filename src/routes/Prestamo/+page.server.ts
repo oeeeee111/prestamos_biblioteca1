@@ -21,6 +21,10 @@ export const actions =  {
        const titulo = data.titulo as string;
        const fechaPrestamo = new Date(data.fechaPrestamo as string);
        const fechaLimite = new Date(data.fechaLimite as string);
+       
+       if (isNaN(fechaPrestamo.getTime()) || isNaN(fechaLimite.getTime())) {
+        return fail(400, { message: 'Las fechas no son válidas' });
+      }
 
        if (!nombre || nombre.trim() === '') {
         return fail(400, { message: 'El nombre es obligatorio' });
@@ -51,6 +55,7 @@ export const actions =  {
     }
 
     return { success: true };
+     
 }
 };
   
