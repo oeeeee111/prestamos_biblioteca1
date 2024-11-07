@@ -8,7 +8,7 @@
 
 
 <div class="botones">
-    <Boton1 href="/notificaciones" titulo="Notificaciones" />
+    <Boton1 href="/inventario" titulo="Notificaciones" />
 	<Boton2  href="/devoluciones" titulo="Devolución" />
 	<Boton3 href="/Prestamo" titulo="Prestamo" />
 </div>
