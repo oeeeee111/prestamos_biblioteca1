@@ -8,7 +8,7 @@
 </script>
 
 
-<a {href} class="btn btnp-2"><span>{titulo}</span></a>
+<a {href} class="btn btnp-3"><span>{titulo}</span></a>
 
 <style>
 
@@ -25,14 +25,14 @@
    
 
 }
-.btnp-2{
-    top: -76px;
-left: 53%;
+.btnp-3{
+    top: -1100%;
+left: 87%;
 
 overflow: hidden;
 
 }
-.btnp-2::after{
+.btnp-3::after{
     content:"";
     position: absolute;
     width: 100%;
@@ -43,7 +43,7 @@ overflow: hidden;
 z-index: -2;
 
 }
-.btnp-2::before{
+.btnp-3::before{
 
     content: "";
     position: absolute;
@@ -56,7 +56,7 @@ z-index: -2;
      z-index: -1;
 
 }
-.btnp-2:hover::before{
+.btnp-3:hover::before{
 animation: btn-5 3s linear both;
 
 

@@ -16,7 +16,7 @@
    font-family: 'Lora', serif;
    display: inline-flex;
    position: relative;
-   padding: 20px 50px;
+   padding: 11px 20px;
    text-decoration: none;
    color: #ffffff;
    justify-content: space-around;
@@ -26,17 +26,18 @@
 
 }
 .btnp-2{
-    top: -76px;
-left: 53%;
-
+    top: -170px;
+left: 740px;
 overflow: hidden;
+z-index: 3;
+
 
 }
 .btnp-2::after{
     content:"";
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 120%;
     top: 0;
     left: 0;
     background-color:rgb(10,157, 255);
@@ -47,8 +48,8 @@ z-index: -2;
 
     content: "";
     position: absolute;
-    width: 100%;
-    height: 250px;
+    width: 99%;
+    height: 130px;
    left: 0;
    bottom: -150%;
    border-radius: 30%;

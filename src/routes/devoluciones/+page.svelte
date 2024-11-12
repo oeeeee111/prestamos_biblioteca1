@@ -1,4 +1,5 @@
 <script>
+	import BotonDevolucion from "$lib/components/botones/botonDevolucion.svelte";
 	let { form } = $props();
 
 	let resultados = $state(form?.resultados);
@@ -54,7 +55,7 @@
     <p style="text-align: center">No se encontraron resultados</p>
 {/if}
 
-
+<BotonDevolucion href="/" titulo="Salida"></BotonDevolucion>
 
 <style>
 	.miContainer {
@@ -76,18 +77,18 @@
 	}
 
 	button {
-		padding: 0.5rem;
-		margin: 0.5rem;
-		
-        color: white;
-        background-color: #4caf50;
-		border-radius: 10px;
-		cursor: pointer;
-	}
+
+position: relative;
+padding: 10px 20px;
+font-family: 'Lora', serif;
+left: 1%;
+color: #ffff;
+background-color: rgb(235, 132, 195);
+}
     
 	button:hover {
         color: rgb(82, 79, 79);
-        border: solid 1px #4caf50;
+        border: solid 1px rgb(235, 132, 195);
         background-color: white;
 	}
 

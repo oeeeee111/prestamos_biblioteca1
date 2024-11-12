@@ -1,5 +1,6 @@
 <script lang="ts">
     export let data;
+    import BotonNotificacion from '$lib/components/botones/botonNotificacion.svelte';
 </script>
 
 <div class="container">
@@ -29,7 +30,7 @@
         </tbody>
     </table>
 </div>
-
+<BotonNotificacion href="/" titulo="Salida"></BotonNotificacion>
 <style>
     .container {
         padding: 20px;
