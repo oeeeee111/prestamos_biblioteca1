@@ -51,10 +51,10 @@ import Botonprestamo2 from '$lib/components/botones/botonprestamo2.svelte';
     <br><br>
 	<button type="submit" class="btn"> Enviar </button>
     <br><br>
-    <Botonprestamo2 href="/" titulo="Salida" ></Botonprestamo2>
+   
 
 </form>
-
+<Botonprestamo2 href="/" titulo="Salida" ></Botonprestamo2>
 <style>
  .btn{
     position: relative;
