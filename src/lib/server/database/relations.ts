@@ -27,6 +27,3 @@ export const prestamosRelations = relations(prestamos, ({one}) => ({
 export const usuariosRelations = relations(usuarios, ({many}) => ({
 	prestamos: many(prestamos),
 }))
-export const usuariosRelations = relations(usuarios, ({many}) => ({
-	prestamos: many(prestamos),
-}));
